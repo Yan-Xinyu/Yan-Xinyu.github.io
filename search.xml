@@ -5,10 +5,18 @@
     <entry>
       <title><![CDATA[GAMES101计算机图形学入门0]]></title>
       <url>/2021/05/12/GAMES101%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A80/</url>
-      <content type="html"><![CDATA[<p>GAMES101简介</p>
-<p>更新计划</p>
-<p>拓展学习</p>
-<p>相关资源</p>
+      <content type="html"><![CDATA[<h1 id="GAMES101简介"><a href="#GAMES101简介" class="headerlink" title="GAMES101简介"></a>GAMES101简介</h1><p>GAME101是闫老师开的现代图形学入门有关课程,课程内容主要分为光栅化,几何,光线传播,模拟四大部分. 并有0-8九次作业.</p>
+<h1 id="更新计划"><a href="#更新计划" class="headerlink" title="更新计划"></a>更新计划</h1><p>目前的进度是看完了除几何外的视频,<strong>将以内容而为课程组织笔记</strong>, 并会完成对应的作业</p>
+<h1 id="拓展学习"><a href="#拓展学习" class="headerlink" title="拓展学习"></a>拓展学习</h1><p>我希望通过本课达到入门计算机图形学的目的,之后等有时间还可以考虑进一步研究,可选的计划有:</p>
+<ol>
+<li><p>手写一个软渲染器</p>
+</li>
+<li><p>GAMES202 <a href="http://games-cn.org/games202/">高质量实时渲染</a></p>
+</li>
+</ol>
+<h1 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h1><p>主页，课件： <a href="https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html">https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html</a></p>
+<p>作业： <a href="http://games-cn.org/forums/topic/allhw/">http://games-cn.org/forums/topic/allhw/</a></p>
+<p>参考笔记：<a href="https://www.notion.so/GAMES101-b0e27c856cde429b8672671a54c34817">https://www.notion.so/GAMES101-b0e27c856cde429b8672671a54c34817</a></p>
 ]]></content>
       
         <categories>
