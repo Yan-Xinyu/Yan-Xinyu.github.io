@@ -3,6 +3,47 @@
   
     
     <entry>
+      <title><![CDATA[GAMES101-4 动画与模拟]]></title>
+      <url>/2021/05/27/GAMES101-4-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%A8%A1%E6%8B%9F/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[GAMES101-3 光线追踪]]></title>
+      <url>/2021/05/27/GAMES101-3-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[GAMES101-2 几何]]></title>
+      <url>/2021/05/27/GAMES101-2-%E5%87%A0%E4%BD%95/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[GAMES101-1 光栅化]]></title>
+      <url>/2021/05/27/GAMES101-1%20%E5%85%89%E6%A0%85%E5%8C%96/</url>
+      <content type="html"><![CDATA[<h1 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h1><p>对应视频 L3-L9</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> GAMES101 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[读巨人CEO内部信后感]]></title>
       <url>/2021/05/15/%E8%AF%BB%E5%B7%A8%E4%BA%BACEO%E5%86%85%E9%83%A8%E4%BF%A1/</url>
       <content type="html"><![CDATA[<p>今天看了芒果冰的游戏公司财报分析视频,无意中得知了巨人网络CEO吴萌的内部信,虽然我没玩过巨人的游戏也不是很喜欢,但不得不承认还是从这封两万多字的长信中获得了许多关于这个行业的思考和信息.</p>
@@ -21,10 +62,20 @@
     </entry>
     
     <entry>
-      <title><![CDATA[GAMES101计算机图形学入门0]]></title>
-      <url>/2021/05/12/GAMES101%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A80/</url>
+      <title><![CDATA[GAMES101-0入门]]></title>
+      <url>/2021/05/12/GAMES101-0%E5%85%A5%E9%97%A8/</url>
       <content type="html"><![CDATA[<h1 id="GAMES101简介"><a href="#GAMES101简介" class="headerlink" title="GAMES101简介"></a>GAMES101简介</h1><p>GAME101是闫老师开的现代图形学入门有关课程,课程内容主要分为光栅化,几何,光线传播,模拟四大部分. 并有0-8九次作业.</p>
-<h1 id="更新计划"><a href="#更新计划" class="headerlink" title="更新计划"></a>更新计划</h1><p>目前的进度是看完了除几何外的视频,<strong>将以内容而为课程组织笔记</strong>, 并会完成对应的作业</p>
+<p>L1对图形学整体进行了简单介绍,L2介绍了学习本课程所需要的部分线性代数基础,因为内容简单,不在系列笔记中包含.</p>
+<h1 id="更新计划"><a href="#更新计划" class="headerlink" title="更新计划"></a>更新计划</h1><p>目前的进度是看完了除几何外的视频,<strong>将以内容而非课程组织笔记</strong>, 并会完成对应的作业</p>
+<ul>
+<li>课程包含的四个主要模块<ul>
+<li>光栅化</li>
+<li>曲线和曲面</li>
+<li>光线追踪</li>
+<li>动画/模拟</li>
+</ul>
+</li>
+</ul>
 <h1 id="拓展学习"><a href="#拓展学习" class="headerlink" title="拓展学习"></a>拓展学习</h1><p>我希望通过本课达到入门计算机图形学的目的,之后等有时间还可以考虑进一步研究,可选的计划有:</p>
 <ol>
 <li><p>手写一个软渲染器</p>
@@ -32,6 +83,42 @@
 <li><p>GAMES202 <a href="http://games-cn.org/games202/">高质量实时渲染</a></p>
 </li>
 </ol>
+<h2 id="L1-Intro"><a href="#L1-Intro" class="headerlink" title="L1-Intro"></a>L1-Intro</h2><p>计算机图形学</p>
+<ul>
+<li>定义</li>
+<li>应用</li>
+<li>和CV的区别</li>
+</ul>
+<h2 id="L2-线性代数基础"><a href="#L2-线性代数基础" class="headerlink" title="L2-线性代数基础"></a>L2-线性代数基础</h2><ul>
+<li>向量<ul>
+<li>点乘: 投影 相似度</li>
+<li>叉乘: 判断左右(2D), 判断内外</li>
+</ul>
+</li>
+<li>矩阵<ul>
+<li>乘法</li>
+<li>转置</li>
+<li><strong>几何意义</strong>: 变换, MVP</li>
+</ul>
+</li>
+</ul>
+<h2 id="L3-L4-变换"><a href="#L3-L4-变换" class="headerlink" title="L3, L4-变换"></a>L3, L4-变换</h2><p>用矩阵来表示变化（向量左乘矩阵）</p>
+<ul>
+<li><p>齐次坐标（Homogeneous coordinates）</p>
+<p>引入齐次坐标的原因：平移变换不能用矩阵形式表示，即不是线性变换，引入齐次坐标后可以将其归纳进统一的形式</p>
+</li>
+<li><p>仿射变换</p>
+<p><img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210530210247.png" alt="image-20210530210236262"></p>
+</li>
+<li><p>逆变换， 对应的矩阵是原变换矩阵的逆矩阵M^-1^</p>
+</li>
+<li><p>3D齐次坐标 </p>
+<ul>
+<li>点（x,y,z,1)</li>
+<li>向量（x,y,z,0)</li>
+</ul>
+</li>
+</ul>
 <h1 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h1><p>主页，课件： <a href="https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html">https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html</a></p>
 <p>作业： <a href="http://games-cn.org/forums/topic/allhw/">http://games-cn.org/forums/topic/allhw/</a></p>
 <p>参考笔记：<a href="https://www.notion.so/GAMES101-b0e27c856cde429b8672671a54c34817">https://www.notion.so/GAMES101-b0e27c856cde429b8672671a54c34817</a></p>
@@ -60,7 +147,11 @@
       <content type="html"><![CDATA[<p>近期花了一些时间配置博客,近期的博客更新计划有:</p>
 <ol>
 <li>GAMES101笔记以及作业</li>
+<li>手写软渲染器</li>
 <li>UE4制作的ARPG项目</li>
+<li>UE4C++</li>
+<li>Motion Matching</li>
+<li>UE5</li>
 </ol>
 <p>后续更新待安排.</p>
 ]]></content>
