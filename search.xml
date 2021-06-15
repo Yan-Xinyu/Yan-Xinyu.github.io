@@ -3,6 +3,75 @@
   
     
     <entry>
+      <title><![CDATA[games202 L1 概述]]></title>
+      <url>/2021/06/16/games202-L1-%E6%A6%82%E8%BF%B0/</url>
+      <content type="html"><![CDATA[<h1 id="L1-Introduction-and-Overview"><a href="#L1-Introduction-and-Overview" class="headerlink" title="L1 Introduction and Overview"></a>L1 Introduction and Overview</h1><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
+<li>实时高质量渲染</li>
+</ul>
+<p>实时: 大于30FPS, (对于XR是90FPS)</p>
+<p>高质量：真实，可靠（all-time correctness (exact or approximate),<br>no tolerance to (uncontrollable) failures）</p>
+<ul>
+<li>课程的四大部分</li>
+</ul>
+<p>阴影</p>
+<p>全局光照</p>
+<p>基于物理的渲染</p>
+<p>实时光线追踪</p>
+<ul>
+<li>Evolution </li>
+</ul>
+<p>通过适当的近似，生成照片级真实（photorealistic）又比离线渲染要快的图片</p>
+<ul>
+<li>实时渲染发展的几个里程碑</li>
+</ul>
+<p>可编程渲染shader（20年前）</p>
+<p>预计算方法（15年前）</p>
+<p>Interactive（指FPS很低） 光追（8到10年前）</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Unity HDRP入门]]></title>
+      <url>/2021/05/31/Unity-HDRP%E5%85%A5%E9%97%A8/</url>
+      <content type="html"><![CDATA[<h1 id="Unity-HDRP"><a href="#Unity-HDRP" class="headerlink" title="Unity HDRP"></a>Unity HDRP</h1><p>本文为我学习Unity HDRP的记录笔记</p>
+<p>HDRP(<strong>High Definition render pipeline</strong>) 高保真度渲染管线, 目的是得到高质量的图形效果,相对应的性能会稍弱</p>
+<ul>
+<li>HDRP的三个princilpes:<ul>
+<li>Physically Based Rendering (PBR)</li>
+<li>unified and coherent lighting</li>
+<li>rendering-path independence</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li> 安装HDRP对应的package</li>
+</ul>
+<p>  window-&gt;package manager, 若找不到”<strong>High Definition RP</strong> “则需要在advanced setting中开启enable preview packages</p>
+<p>原文中还提到了需要新建HDRP对应的asset, 但是我发现在2020.3.0f1 版本中, 安装hdrp的package会跳出方框,里面点fix all会自动完成本设置</p>
+<p>参考资料</p>
+<p><a href="https://learn.unity.com/tutorial/introduction-to-hdrp-2019-3?language=en#5e725de2edbc2a00203484cc">https://learn.unity.com/tutorial/introduction-to-hdrp-2019-3?language=en#5e725de2edbc2a00203484cc</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Unity </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Unity </tag>
+            
+            <tag> HDRP </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[GAMES101-4 动画与模拟]]></title>
       <url>/2021/05/27/GAMES101-4-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%A8%A1%E6%8B%9F/</url>
       <content type="html"></content>
