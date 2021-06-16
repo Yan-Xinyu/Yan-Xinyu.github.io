@@ -3,6 +3,80 @@
   
     
     <entry>
+      <title><![CDATA[games202 L2 基础知识回顾]]></title>
+      <url>/2021/06/16/games202-L2-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/</url>
+      <content type="html"><![CDATA[<h1 id="渲染管线"><a href="#渲染管线" class="headerlink" title="渲染管线"></a>渲染管线</h1><p>参考101相关内容</p>
+<p><img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210616122054.png" alt="image-20210616122038868"></p>
+<h1 id="OpenGL"><a href="#OpenGL" class="headerlink" title="OpenGL"></a>OpenGL</h1><p>一系列从CPU调用GPU管线的API</p>
+<p>跨平台</p>
+<p>同类替代品(DirectX, Vulkan)</p>
+<ul>
+<li><p>缺点</p>
+<ul>
+<li>许多版本</li>
+<li>C风格,不好用</li>
+<li>(曾经)难以debug</li>
+</ul>
+</li>
+<li><p>Open 执行流程</p>
+<p>可以用画油画来类比</p>
+<p><strong>A. 摆放物体</strong></p>
+<p>用户说明物体的顶点,发现,纹理坐标并把他们送到GPU的Vertex buffer object(VBO)</p>
+<p>Model 变换</p>
+<p><strong>B.设置画架</strong></p>
+<p>View变换</p>
+<p>创建frame buffer</p>
+<p><strong>C.把画布放到画架上</strong></p>
+<p>在OpenGL的每个渲染pass上, 声明要使用的framebuffer, 声明一个或是多个要输出的texture, 渲染</p>
+<p><strong>D.在画布上画画</strong></p>
+<p>使用vertex/fragment shaders来着色</p>
+<ul>
+<li><p>对于每个顶点</p>
+<p>OpenGL调用用户指定的shader: MVP和其他ops</p>
+</li>
+<li><p>对于每个primitive</p>
+<p>OpenGL做光栅化,对每个该fragment包含的pixel生成对应的fragment</p>
+</li>
+<li><p>对于每个fragment</p>
+<p>OpenGL调用用户指定的shader: 着色和光照计算</p>
+<p>OpenGL还会处理z-buffer,除非被用户重写</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="OpenGL-Shading-Language-GLSL"><a href="#OpenGL-Shading-Language-GLSL" class="headerlink" title="OpenGL Shading Language(GLSL)"></a>OpenGL Shading Language(GLSL)</h1><ul>
+<li>初始化<ul>
+<li>创建shader: vertex和fragment</li>
+<li>编译shader</li>
+<li>把shader连接到program上</li>
+<li>链接program</li>
+<li>使用program</li>
+</ul>
+</li>
+<li>Debug shader<ul>
+<li>NNsight Graphics (cross platform, NVIDIA GPUs only)</li>
+<li>RenderDoc (cross platform, no limitations on GPUs)</li>
+</ul>
+</li>
+</ul>
+<h1 id="渲染方程"><a href="#渲染方程" class="headerlink" title="渲染方程"></a>渲染方程</h1><p><img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210616125720.png" alt="image-20210616125720372"></p>
+<p>RTR的渲染方程和101中的渲染方程等价,无非换了种形式</p>
+<p>我们可以使用cube map 或者 sphere map来表示来自各个方向的incident lighting</p>
+<p>本课之后还会引入其他的方法</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> GAMES202 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[games202 L1 概述]]></title>
       <url>/2021/06/16/games202-L1-%E6%A6%82%E8%BF%B0/</url>
       <content type="html"><![CDATA[<h1 id="L1-Introduction-and-Overview"><a href="#L1-Introduction-and-Overview" class="headerlink" title="L1 Introduction and Overview"></a>L1 Introduction and Overview</h1><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
@@ -29,6 +103,14 @@
 <p>Interactive（指FPS很低） 光追（8到10年前）</p>
 ]]></content>
       
+        
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> GAMES202 </tag>
+            
+        </tags>
         
     </entry>
     
