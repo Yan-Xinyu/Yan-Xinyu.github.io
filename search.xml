@@ -3,6 +3,59 @@
   
     
     <entry>
+      <title><![CDATA[games202 L3 实时阴影1]]></title>
+      <url>/2021/06/21/games202-L3-%E5%AE%9E%E6%97%B6%E9%98%B4%E5%BD%B11/</url>
+      <content type="html"><![CDATA[<h1 id="Shadow-Mapping-回顾"><a href="#Shadow-Mapping-回顾" class="headerlink" title="Shadow Mapping 回顾"></a>Shadow Mapping 回顾</h1><ul>
+<li>2-pass的算法</li>
+<li>image-space的算法</li>
+</ul>
+<p>自遮蔽问题</p>
+<p>走样</p>
+<h1 id="Shadow-mapping-的数学原理"><a href="#Shadow-mapping-的数学原理" class="headerlink" title="Shadow mapping 的数学原理"></a>Shadow mapping 的数学原理</h1><ul>
+<li>RTR中的一个重要近似</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210621231721.png" alt="image-20210621231714836"></p>
+<p>可以用到渲染方程里面，把V作为上式中的ｆ提取出来</p>
+<p>近似适用条件如下，该情况是满足的</p>
+<ul>
+<li>When is it accurate?<ul>
+<li>Small support<br>(point / directional lighting)</li>
+<li>Smooth integrand<br>(diffuse bsdf / constant radiance area lighting)</li>
+</ul>
+</li>
+</ul>
+<h1 id="PCSS-Percentage-closer-soft-shadows"><a href="#PCSS-Percentage-closer-soft-shadows" class="headerlink" title="PCSS: Percentage closer soft shadows"></a>PCSS: Percentage closer soft shadows</h1><p>一种实现软阴影的有效方法, 基于PCF和shadow mapping</p>
+<p>单光源</p>
+<h2 id="PCF"><a href="#PCF" class="headerlink" title="PCF"></a>PCF</h2><p>对深度比较的结果(0,1的二值)在一个范围内取平均,用这个平均值作为V的结果</p>
+<ul>
+<li>范围大小的影响<ul>
+<li>小范围,阴影更尖锐</li>
+<li>大范围,<strong>阴影越软</strong></li>
+</ul>
+</li>
+</ul>
+<p>－＞　可以想到用PCF做软阴影，那么问题是正确的size怎么选?</p>
+<h2 id="Blocker-Size"><a href="#Blocker-Size" class="headerlink" title="Blocker Size"></a>Blocker Size</h2><p>一个观察: 阴影平面距离遮挡物越远,产生的阴影越软</p>
+<p>引入blocker size的概念,可以以此作为PCF中选择filter size的决定因素</p>
+<h2 id="PCSS的具体流程"><a href="#PCSS的具体流程" class="headerlink" title="PCSS的具体流程"></a>PCSS的具体流程</h2><ul>
+<li>Step 1: Blocker search<br>(getting the average blocker depth in a certain region,可以是定值,也可以启发式)</li>
+<li>Step 2: Penumbra estimation<br>(use the average blocker depth to determine filter size)</li>
+<li>Step 3: Percentage Closer Filtering</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> GAMES202 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[games202 L2 基础知识回顾]]></title>
       <url>/2021/06/16/games202-L2-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/</url>
       <content type="html"><![CDATA[<h1 id="渲染管线"><a href="#渲染管线" class="headerlink" title="渲染管线"></a>渲染管线</h1><p>参考101相关内容</p>
