@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="games202 L3 实时阴影2"><meta name="keywords" content="计算机图形学,GAMES202"><meta name="author" content="Xinyu Yan"><meta name="copyright" content="Xinyu Yan"><title>games202 L3 实时阴影2 | Xinyu's blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PCF%E5%92%8CPCSS%E7%9A%84%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.</span> <span class="toc-text">PCF和PCSS的回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PCF%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.1.</span> <span class="toc-text">PCF回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCSS%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.2.</span> <span class="toc-text">PCSS回顾</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Variance-soft-shadow-mapping"><span class="toc-number">2.</span> <span class="toc-text">Variance soft shadow mapping</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9PCF%E7%9A%84%E5%8A%A0%E9%80%9F"><span class="toc-number">2.1.</span> <span class="toc-text">对PCF的加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%B1%82blocker-depth%E7%9A%84%E5%8A%A0%E9%80%9F"><span class="toc-number">2.2.</span> <span class="toc-text">对求blocker depth的加速</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MIPMAP-and-Summed-Area-Variance-Shadow-Maps"><span class="toc-number">3.</span> <span class="toc-text">MIPMAP and Summed-Area Variance Shadow Maps</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SAT"><span class="toc-number">3.1.</span> <span class="toc-text">SAT</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Moment-shadow-mapping"><span class="toc-number">4.</span> <span class="toc-text">Moment shadow mapping</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E5%92%8C%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">对比和总结</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">Xinyu Yan</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">6</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">3</span></a></div></div></div><div id="content-outer"><div class="plain" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Xinyu's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div></div><div class="layout" id="content-inner"><article id="post"><div class="plain" id="post-title">games202 L3 实时阴影2</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-06-23</time></div><div class="article-container" id="post-content"><h1 id="PCF和PCSS的回顾"><a href="#PCF和PCSS的回顾" class="headerlink" title="PCF和PCSS的回顾"></a>PCF和PCSS的回顾</h1><h2 id="PCF回顾"><a href="#PCF回顾" class="headerlink" title="PCF回顾"></a>PCF回顾</h2><p>滤波,卷积,加权平均在某种程度上是同一件事</p>
+<p>PCF中,对应被滤波的原函数应该是X+(D1 - D2),如下图</p>
+<p><img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210623224451.png" alt="image-20210623224444185"></p>
+<p>而不是对shadow map(如下图)或者生成的图像的Visibility进行滤波</p>
+<p><img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210623225009.png" alt="image-20210623225009867"></p>
+<h2 id="PCSS回顾"><a href="#PCSS回顾" class="headerlink" title="PCSS回顾"></a>PCSS回顾</h2><ul>
+<li><p>可能比较慢的步骤</p>
+<p>在给定区域内查询每一个texel, 对应第一步(求平均blocker depth)和第三步(PCF)</p>
+<p>VSSM(下文)就是针对PCSS这两个相对较慢的步骤进行了加速</p>
+</li>
+</ul>
+<h1 id="Variance-soft-shadow-mapping"><a href="#Variance-soft-shadow-mapping" class="headerlink" title="Variance soft shadow mapping"></a>Variance soft shadow mapping</h1><h2 id="对PCF的加速"><a href="#对PCF的加速" class="headerlink" title="对PCF的加速"></a>对PCF的加速</h2><p>PCSS选择一个邻域内深度比较然后再把得到的0-1值平均,等价于求出在邻域里有多少个Texel离得更近.</p>
+<p>我们<strong>假设</strong>texel深度分布为正态分布,则容易求出某深度排多少(CDF),问题转化成求出这个正态分布,因为正态分布由均值和方差确定,即求这两个参数.</p>
+<ul>
+<li>对于均值, 硬件会做MIPMAP,我们也可以用 Summed Area Tables (SAT) 求出,见下文</li>
+<li>对于方差, Var(X) = E(X^2^) − E^2^(X), 只需要生成shadow map同时生成深度平方对应的图</li>
+</ul>
+<p>在求出分布后,我们可以通过数值解/查表得知P(x&gt;t),但是这里进行了又一个假设:</p>
+<p><img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210623230720.png" alt="image-20210623230720126"></p>
+<p>使用切比雪夫不等式进行估计</p>
+<ul>
+<li>该不等式并不要求正态分布,只要求是单峰分布(正态的假设是满足的)</li>
+<li>我们直接把不等近似成相等,注意该近似是在t&gt;u时误差才较小的</li>
+</ul>
+<h2 id="对求blocker-depth的加速"><a href="#对求blocker-depth的加速" class="headerlink" title="对求blocker depth的加速"></a>对求blocker depth的加速</h2><p>经过上面操作后,PCSS的第三步不再需要循环访问邻域的点了,然而第一步求平均blocker depth时还要访问邻域,以下是另一方面的加速</p>
+<p>我们记Blocker (z &lt; t)的平均深度为 Z<del>occ</del></p>
+<p>非blocker (z &gt; t) 的平均深度为Z<del>unocc</del></p>
+<p>则容易得到以下公式:</p>
+<img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210623231353.png" alt="image-20210623231353361" style="zoom:25%;" />
+
+<p>我们希望求得Zocc</p>
+<p>Zavg是已知的</p>
+<p>N1/N = P (X&gt;t) 可以用之前的切比雪夫不等式近似求出</p>
+<p>N2/N = 1 - N1/N</p>
+<p>Zunocc我们直接近似为t(假设更深的点深度都和该点相同), 这个相等假设有一定的合理性因为大部分阴影接受面都是平面(深度相同)</p>
+<p>则Zocc可以求出</p>
+<h1 id="MIPMAP-and-Summed-Area-Variance-Shadow-Maps"><a href="#MIPMAP-and-Summed-Area-Variance-Shadow-Maps" class="headerlink" title="MIPMAP and Summed-Area Variance Shadow Maps"></a>MIPMAP and Summed-Area Variance Shadow Maps</h1><p>在VCSS中,为了求得均值,我们需要经常对一个矩形区域进行范围查询(Range Query)</p>
+<p><strong>MIPMAP</strong> 和 **Summed Area Table (SAT)**都可以用来解决类似范围查询的问题</p>
+<p>MIPMAP在101中讲过,本处就不再赘述</p>
+<h2 id="SAT"><a href="#SAT" class="headerlink" title="SAT"></a>SAT</h2><p>基本可以认为是二维的前缀和</p>
+<p><img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210623232244.png" alt="image-20210623232244389"></p>
+<p>对于任何一个轴对齐的矩形(上图中的蓝色)区域,它可以转化为四个矩形相加减的结果,而且这四个矩形都是左上角是固定顶点的矩形,我们完全可以通过预处理求出所有左上角为矩形的左上角,右下角为(X,Y)的矩形和,然后对于任何矩形区域,查表四次即可</p>
+<ul>
+<li>建表会有时间空间的开销,空间开销问题不大(等于原图大小),时间开销可以用并行(CUDA)加速</li>
+</ul>
+<h1 id="Moment-shadow-mapping"><a href="#Moment-shadow-mapping" class="headerlink" title="Moment shadow mapping"></a>Moment shadow mapping</h1><p>该方法是对VSSM的一次改进, VSSM中假设了正态分布,然而该假设有时会出问题,如下图,如果用红线的正态分布估计蓝线的实际分布,得到的阴影结果会更亮,这一问题被称为**”Light leaking”**(有些人也称light bleeding,但是为了防止与后面的color bleeding混淆而不采用该说法)</p>
+<img src="https://raw.githubusercontent.com/Yan-Xinyu/Pictures_YXY/main/20210623232941.png" alt="image-20210623232941130" style="zoom: 25%;" />
+
+<ul>
+<li><p>Moment SS核心: 用更高维的矩(moment)来得到更好的分布</p>
+<ul>
+<li>矩的定义很有多等价说法,我们这里用最简单的x x2 x3 x4</li>
+<li>VSSM其实只用了一阶和二阶矩</li>
+</ul>
+</li>
+<li><p>结论:用m阶矩可以表示一个m/2个阶梯的函数(证明略,老师说很复杂)</p>
+<p>实际中,一般四阶矩已经足够好了,即生成shadow map时,同时记录z,z^2^,z^3^,z^4^</p>
+<p>然后blocker search 和PCF中存储矩生成的CDF</p>
+</li>
+<li><p>优点,解决了light　leaking的问题</p>
+</li>
+<li><p>缺点，存储，时间的花销增大</p>
+<h1 id="对比和总结"><a href="#对比和总结" class="headerlink" title="对比和总结"></a>对比和总结</h1></li>
+</ul>
+<p>这三种方法都是生成软阴影的方法</p>
+<p>VSSM对PCSS进行了加速的改进，Moment SS又对VSSM进行了改进，解决了漏光的问题，在过去一段时间VSSM和moment也有应用，但现在主要用的是噪声版本的PCSS</p>
+<ul>
+<li>所谓噪声版本PCSS，即在邻域内不查询所有点而是采样，因此产生了噪声</li>
+<li>噪声PCSS被广泛应用的前提,当前各种降噪方法非常成熟（TAA什么的）</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Xinyu Yan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://yan-xinyu.github.io/2021/06/23/games202-L3-实时阴影2/">https://yan-xinyu.github.io/2021/06/23/games202-L3-实时阴影2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a><a class="post-meta__tags" href="/tags/GAMES202/">GAMES202</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2021/06/21/games202-L3-%E5%AE%9E%E6%97%B6%E9%98%B4%E5%BD%B11/"><span>games202 L3 实时阴影1</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2021 By Xinyu Yan</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://yan-xinyu.github.io/">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
